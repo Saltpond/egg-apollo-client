@@ -1,5 +1,5 @@
 {
-  "name": "egg-apollo-client",
+  "name": "@yunding/egg-apollo-client",
   "version": "1.0.0",
   "description": "apollo plugin for egg base on ctrip-apollo",
   "eggPlugin": {
