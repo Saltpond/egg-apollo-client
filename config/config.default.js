@@ -10,6 +10,6 @@ exports.apollo = {
   enableFetch: true,
   fetchInterval: 5 * 60 * 1000,
   retry: 10,
-  mergeNamespace: 'application', // 将namespace合入本地配置
+  mergeNamespace: '', // 将namespace合入本地配置
   mountConfig: true, // 将namespaces挂载到本地配置
 };
