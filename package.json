@@ -13,8 +13,8 @@
   "dependencies": {
     "ctrip-apollo": "^4.4.2",
     "properties": "^1.2.1",
-    "ramda": "^0.26.1",
-    "wait-sync": "^1.0.1"
+    "system-sleep": "^1.3.6",
+    "extend2": "^1.0.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
