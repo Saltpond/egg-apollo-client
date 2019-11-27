@@ -1,6 +1,6 @@
 'use strict';
 
-const Apollo = require('ctrip-apollo');
+const Apollo = require('ctrip-apollo-ex');
 const { loadApolloConfig } = require('./lib/utils');
 
 class AppBootHook {
