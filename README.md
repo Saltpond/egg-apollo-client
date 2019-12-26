@@ -33,6 +33,7 @@ exports.apollo = {
 ## 详细配置
 
 ```
+{
   host: '', // 配置中心地址
   appId: '', // appId
   cluster: 'default', // 默认集群
@@ -42,8 +43,9 @@ exports.apollo = {
   enableFetch: true, // 默认开启定时拉取
   fetchInterval: 5 * 60 * 1000, // 定时拉取间隔
   retry: 10, // 初始化重试次数
-  mergeNamespace: '', // 将特定namespace合入本地配置 默认不做
+  mergeNamespace: '', // 将特定namespace合入本地配置 默认不开启
   mountConfig: true, // 将namespaces挂载到本地配置 默认开启
+}
 ```
 
 请到 [config/config.default.js](config/config.default.js) 查看详细配置项说明。
@@ -94,10 +96,14 @@ app.apollo.namespace().get(key); // 获取默认namespace下的某个配置
 
 常见配置可以参考[ctrip-apollo](https://github.com/kaelzhang/ctrip-apollo)
 
+`namespaces` 配置
+如果不是properties文件 例如 name=app, format=json，,那么namespaces配置应为app.json
+    
+
 `mountConfig`配置 默认开启
 
 开启后会将`namespaces`挂载到`config`下，比如配置`namespaces: [ 'application','otherNameSpace' ]`的时候你可以通过`app.config.application`,`app.config.otherNameSpace`获取 apollo 配置。
 
 `mergeNamespace`配置
 
-如果你希望将特定`namespace`的配置合并到`config`中，可以设置`mergeNamespace`，如`mergeNamespace: 'application'`，常见的使用场景是在 egg 启动前更改配置，采用的是`extend2`合并配置，如将启动的配置放在 apollo 配置中心，否则使用`mountConfig`进行配置挂载就能满足日常需求。
+如果你希望将特定`namespace`的配置合并到`config`中，可以设置`mergeNamespace`，如`mergeNamespace: 'application'`，也支持传入数组 如`mergeNamespace: [ 'application', 'application1' ]` 后面配置覆盖前面配置。 常见的使用场景是在 egg 启动前更改配置，采用的是`extend2`合并配置，如将启动的配置放在 apollo 配置中心，否则使用`mountConfig`进行配置挂载就能满足日常需求。
